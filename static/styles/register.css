@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #000;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 70%;
+}
+
+.div-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.384);
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#company-title {
+    color: #fff;
+    font-size: 20px;
+    font-family: "Monospace";
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+form {
+    width: 100%;
+}
+
+#title {
+    color: #fff;
+    letter-spacing: 2px;
+    font-family: "Monospace";
+    padding-bottom: 10px;
+}
+
+.input-container {
+    width: 100%;
+    top: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.label {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    transition: all 0.2s;
+    padding: 0 2px;
+    z-index: 1;
+    color: whitesmoke;
+}
+
+.text-input {
+    padding: 0.8rem;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.384);
+    border-radius: 10px;
+    background: #272530;
+    font-size: 18px;
+    outline: none;
+    transition: all .3s;
+    color: #fff;
+}
+
+.label::before {
+    content: "";
+    height: 5px;
+    background-color: #272530;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    z-index: -1;
+}
+
+.text-input:focus {
+    border: 2px solid hsla(240, 100%, 50%, 0.233);
+}
+
+.text-input:focus+.label,
+.filled {
+    top: -10px;
+    color: whitesmoke;
+    font-size: 14px
+}
+
+.text-input::placeholder {
+    font-size: 16px;
+    opacity: 0;
+    transition: all .3s;
+}
+
+.text-input:focus::placeholder {
+    opacity: 1;
+    animation-delay: 0.2s;
+}
+
+.text-input:focus+label,
+.text-input:valid+label {
+    top: -10px;
+    color: whitesmoke;
+    font-size: 14px;
+}
+
+.btn-submit {
+    background: transparent;
+    border: none;
+    color: whitesmoke;
+    font-size: 20px;
+    width: 50%;
+}
+
+.btn-submit {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    outline: none;
+    background: linear-gradient(90deg, #302f2f5b, #0a0a0a, #1a1918, #000000);
+    background-size: 400%;
+    color: whitesmoke;
+    font-size: 24px;
+    letter-spacing: 4px;
+}
+
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, #d4d4d4, #d3b8b8, #8f8181, #000000);
+    background-size: 200%;
+    border-radius: 50px;
+    opacity: 0;
+    transition: .5s;
+}
+
+.btn-submit:hover {
+    animation: animate 10s linear infinite;
+    border: 2px solid hsla(240, 100%, 50%, 0.233);
+}
+
+.btn-submit:hover::before {
+    filter: blur(25px);
+    opacity: .8;
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 100%;
+    }
+}
+
+.layout-box {
+    font-size: 15px;
+    width: 100%;
+    top: 10px;
+    display: flex;
+    flex-direction: row;
+    color: whitesmoke;
+    justify-content: left;
+
+}
+
+.div-forgot {
+    padding-right: 10%;
+    text-align: left;
+}
+
+.resetPassword {
+    color: whitesmoke;
+}
+
+.reg-acc {
+    text-align: left;
+    cursor: pointer;
+}
+
+.registration-redirect {
+    color: whitesmoke;
+}
+
+.help_messages, .help_text{
+    list-style: none;
+    list-style-type: none;
+    text-align: center;
+    line-break:strict;
+    padding-left: 10px;
+    font-size: medium;
+    color: red;
+    font-weight: bold;
+}
+.help_messages{
+    font-weight: normal;
+    text-align: left;
+    color: orange;
+    display: flex;
+    flex-direction: row;
+}
+
+.info_box_message{
+    margin-bottom: 10px;
+}
+
+.fa-circle-info{
+    color: whitesmoke;
+    padding-right: 10px;
+}
+.unamediv{
+    background-color: red;
+    background-size: auto;
+}
+
+#btn_sub {
+    margin-top: 30px;
+}
+
+.icons-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.fa-eye {
+    position: relative;
+    top: -35px;
+    background-color: transparent;
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+.fa-circle-xmark {
+    position: relative;
+    top: -35px;
+    background-color: transparent;
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+.div-clear-icon {
+    padding-right: 10%;
+}
+
+.div-show-icon {
+    padding-right: 5%;
+}
+
+.top-info-messaging-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.top-info-messaging{
+    display: flex;
+    background: rgba(0, 0, 0, 0.562);
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    
+}
+.top-info-messaging-box .top-info-messaging .top-info-messaging-clear-icon .fa-circle-xmark {
+    position: unset;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.top-info-messaging-clear-icon{
+    display: flex;
+    width: 10%;
+    justify-content: flex-end;
+    width: 10%
+
+}
+
+.top-info-messaging-box .top-info-messaging .errorlist{
+    display: flex;
+    flex-direction: column;
+    color: red;
+    list-style-type: none;
+    font-weight: bold;
+    justify-content: center;
+    width: 100%;
+}
+
+.top-info-messaging-box .top-info-messaging .successlist {
+    display: flex;
+    color: green;
+    list-style-type: none;
+    font-weight: bold;
+    justify-content: center;
+    width: 100%;
+}

@@ -1,0 +1,122 @@
+{
+    "formatVersion": 1,
+    "passTypeIdentifier": "pass.com.senity.application",
+    "serialNumber": "",
+    "webServiceURL": "https://senitysecuritysystems.com/api/passes/",
+    "authenticationToken": "",
+    "teamIdentifier": "AC825JF3W2",
+    "locations": [
+        {
+            "latitude": 47.47313,
+            "longitude": 19.01918,
+            "altitude": 10.0,
+            "distance": null,
+            "relevantText": "Entrance."
+        }
+    ],
+    "organizationName": "Senity Security Systems",
+    "description": "ACCESS CARD",
+    "suppressStripShine": false,
+    "lastUpdated": "",
+    "generic":
+    {
+        "headerFields": [
+            {
+                "key": "access_tier",
+                "value": "STANDARD",
+                "label": "ACCESS TIER:",
+                "changeMessage": "Your access tier has been updated to %@.",
+                "textAlignment": "PKTextAlignmentLeft"
+            }
+        ],
+        "primaryFields": [
+            {
+                "key": "address",
+                "value": "Rozmaring Street 5.",
+                "label": "",
+                "changeMessage": "",
+                "textAlignment": "PKTextAlignmentLeft"
+            }
+        ],
+        "secondaryFields": [
+            {
+                "key": "name",
+                "value": "Daniel Pal",
+                "label": "Name:",
+                "changeMessage": "Your name has been updated to %@.",
+                "textAlignment": "PKTextAlignmentLeft"
+            }
+        ],
+        "auxiliaryFields" : [
+            {
+                "key": "uid",
+                "value": "",
+                "label": "UID",
+                "changeMessage": "Your unique ID has been updated to %@.",
+                "textAlignment": "PKTextAlignmentLeft"
+            },
+            {
+                "key": "Card created in:",
+                "value": "2024.",
+                "label": "CREATED",
+                "changeMessage": "",
+                "textAlignment": "PKTextAlignmentLeft"
+            },
+            {
+                "key": "status",
+                "value": "",
+                "label": "STATUS",
+                "changeMessage": "Your pass status has been updated to %@.",
+                "textAlignment": "PKTextAlignmentLeft"
+            }
+        ],
+        "backFields": [
+            {
+                "key": "webServiceURL",
+                "value": "",
+                "label": "webServiceURL",
+                "changeMessage": "",
+                "textAlignment": "PKTextAlignmentLeft"
+            },
+            {
+                "key": "serialNumber",
+                "value": "",
+                "label": "serialNumber",
+                "changeMessage": "",
+                "textAlignment": "PKTextAlignmentLeft"
+            },
+            {
+                "key": "authenticationToken",
+                "value": "",
+                "label": "authenticationToken",
+                "changeMessage": "",
+                "textAlignment": "PKTextAlignmentLeft"
+            },
+            {
+                "key": "file_name",
+                "value": "",
+                "label": "file_name",
+                "changeMessage": "",
+                "textAlignment": "PKTextAlignmentLeft"
+            },
+            {
+                "key": "nfc_message",
+                "value": "",
+                "label": "nfc_message",
+                "changeMessage": "Your NFC message has been updated to %@.",
+                "textAlignment": "PKTextAlignmentLeft"
+            }
+        ]
+    },
+    "backgroundColor": "#0a2f57",
+    "foregroundColor": "#FFFFFF",
+    "labelColor": "#FFFFFF",
+    "logoText": "ACCESS CARD",
+    "nfc": {
+        "message": "10101010",
+        "encryptionPublicKey": "MDkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDIgACqE8K3/XwspxwKjekgrxHWdn9TXl5s5LCFpdbk0QHUnA=",
+        "requiresAuthentication": true
+    },
+    "sharingProhibited": true
+}
+

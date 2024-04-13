@@ -1,0 +1,42 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet"  type="text/css" href="{% static 'styles/dashboard.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.css"
+        integrity="sha512-FA9cIbtlP61W0PRtX36P6CGRy0vZs0C2Uw26Q1cMmj3xwhftftymr0sj8/YeezDnRwL9wtWw8ZwtCiTDXlXGjQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Main</title>
+</head>
+<body>
+    <div class="div-frame">
+        <span>Greetings, {{request.user}}!</span>
+        <form method="POST" id="googlePassForm">
+            {% csrf_token %}
+            {% if request.user_agent.os.family == "iOS" or request.user_agent.is_pc  %}
+            <button type="submit" name="generate_pass" class="ios-wallet-button">
+                <img src="{% static 'images/US-UK_Add_to_Apple_Wallet_RGB_101421.svg' %}" alt="Generate Apple Pass" />
+            </button>
+            <button type="submit" name="send_notification" class="notification-button">Send Notification</button>
+            {% endif %}
+
+            {% if request.user_agent.os.family == "Android" or request.user_agent.is_pc %}
+            <button type="submit" name="generate_google_pass" class="wallet-button">
+                <img src="{% static 'images/hu_add_to_google_wallet_add-wallet-badge.svg' %}" alt="Generate Google Pass" />
+                <button type="submit" name="send_notification_google" class="notification-button">Send Notification Google</button>
+            </button>
+            {% endif %}
+        </form>
+        {% if google_pass_link %}
+            <button id="autoRedirectButton" onclick="window.location.href='{{ google_pass_link }}';" style="display:none;"></button>
+        {% endif %}
+        <span><a href="{% url "logout" %}">Logout</a></span>
+    </div>
+    <script defer src="{% static 'js/dashboard.js' %}"></script>
+</body>
+</html>

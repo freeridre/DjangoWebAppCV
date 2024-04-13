@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" type="text/css" href="{% static "styles/register.css"%}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.css"
+        integrity="sha512-FA9cIbtlP61W0PRtX36P6CGRy0vZs0C2Uw26Q1cMmj3xwhftftymr0sj8/YeezDnRwL9wtWw8ZwtCiTDXlXGjQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="{% static 'js/registration.js' %}"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render={{site_key}}"></script>
+    <script>
+        grecaptcha.ready(function()
+        {
+            $('#contactform').submit(function(e)
+            {
+                var form = this;
+                e.preventDefault()
+                grecaptcha.execute('{{site_key}}', {action: 'contactform'}).then(function(token)
+                {
+                    $('#recaptcha').val(token)
+                    form.submit()
+                });
+            })
+        });
+    </script>
+
+
+    <link rel="icon" href="{% static "images/favicon-32x32.png" %}">
+</head>
+<body>
+    
+    <video class="bg-video" src="{% static "images/vd1.mp4" %}" muted loop autoplay></video>
+    
+    <div class="div-frame">
+        <div class="top-info-messaging-box">
+            {% include 'messaging.html' %}
+        </div>
+        <h1 id="company-title">Senity Security Systems</h1>
+        <h2 id="title">Registration form</h2>
+        
+        <form action="" method="POST" id="contactform">
+            {% csrf_token %}
+            <input type="hidden" name="g-recaptcha-response" id='recaptcha'>
+            <div class="input-container">
+                <input class="text-input" id="email" type="email/text" autocomplete="off" placeholder="Enter your email address" name="email" required>
+                <label class="label" for="E-mail address">E-mail address</label>
+                <div class="icons-div">
+                    <div class="div-clear-icon">
+                        <i class="fa-regular fa-circle-xmark" id='clearMark'></i>
+                    </div>
+                </div>
+                <div class="help_messages">
+                    <div class="info_box_message_icon">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+                    <div class="info_box_message">
+                        {{form.email.help_text}}
+                    </div>
+                </div>
+                
+            </div>
+            <div class="input-container">
+                <input class="text-input" id="username" type="text" autocomplete="off" placeholder="Enter your username" name="username" required>
+                <label class="label" for="username">User name</label>
+                <div class="icons-div">
+                    <div class="div-clear-icon">
+                        <i class="fa-regular fa-circle-xmark" id='clearMark_1'></i>
+                    </div>
+                </div>
+                <div class="help_messages">
+                    <div class="info_box_message_icon">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+                    <div class="info_box_message">
+                        {{form.username.help_text}}
+                    </div>
+                </div>
+            </div>
+            <div class="input-container">
+                <input class="text-input" id='password1' type="password" autocomplete="off" placeholder="Enter your password"
+                    name="password1" required>
+                <label class="label" for="password1">Password</label>
+                <div class="icons-div">
+                    <div class="div-show-icon">
+                        <i class="far fa-eye" id='showPassword1'></i>
+                    </div>
+                    <div class="div-clear-icon">
+                        <i class="fa-regular fa-circle-xmark" id='clearMark_2'></i>
+                    </div>
+                </div>
+                <div class="help_messages">
+                    <div class="info_box_message_icon">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+                    <div class="info_box_message">
+                        {{form.password1.help_text}}
+                    </div>
+                </div>
+                
+            </div>
+            <div class="input-container">
+                <input class="text-input" id='password2' type="password" autocomplete="off" placeholder="Confirm your password"
+                    name="password2" required>
+                <label class="label" for="password2">Confirm password</label>
+                <div class="icons-div">
+                    <div class="div-show-icon">
+                        <i class="far fa-eye" id='showPassword2'></i>
+                    </div>
+                    <div class="div-clear-icon">
+                        <i class="fa-regular fa-circle-xmark" id='clearMark_3'></i>
+                    </div>
+                </div>
+                <div class="help_messages">
+                    <div>
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+                    <div class="info_box_message">
+                        {{form.password2.help_text}}
+                    </div>
+                </div>
+                
+            </div>
+            <div class="layout-box">
+                <div class="div-forgot" >
+                    <a class = "resetPassword" href="{% url 'resetPass' %}">
+                        Forgot your password?
+                    </a>
+                </div>
+                <div class="reg-acc">
+                    <a class="registration-redirect" href="{% url 'login' %}" >Already registered?</a>
+                </div>
+            </div>
+            <div class="input-container" id="btn_sub">
+                <button class="btn-submit" type="submit">
+                    <a>Sign up</a>
+                </button>
+            </div>
+            
+        </form>
+    </div>
+    
+</body>
+</html>

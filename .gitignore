@@ -47,4 +47,9 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-
+*.env
+.venv
+.vscode
+UserHandler/migrations
+*.pkpass
+utils/current_ip.txt

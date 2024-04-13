@@ -1,0 +1,31 @@
+html, body {
+    height: 100%; /* Full height for the parent */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    font-family: sans-serif;
+    background: rgba(0, 0, 0, 0.384);
+}
+
+.div-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Add any additional styling you need for .div-frame */
+}
+
+.ios-wallet-button {
+    display: inline-block; /* Keeps the button inline but allows width and height */
+    all: unset;  /* Eltávolítja az összes alapértelmezett stílust */
+    cursor: pointer;
+    background-color: transparent;
+    border: none; /* Removes any border that might be present */
+    padding: 0; /* Removes any padding that might be present */
+}
+
+.wallet-button {
+    all: unset;
+    padding: 8pt; /* Add padding of 8 points to all sides */
+}

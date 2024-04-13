@@ -1,0 +1,41 @@
+<!-- django_project/main/templates/main/includes/messaging.html -->
+{% if infoMessages %}
+    {% for message in infoMessages %}
+        {% if message.tags == 'success' %}
+        <div class="top-info-messaging-bg">
+            <div class="top-info-messaging" id="top-info_messaging-div-{{forloop.counter}}">
+                <div class="successlist" id="success-message-{{forloop.counter}}">
+                    {{ message|safe }}
+                    <div class="top-info-messaging-clear-icon" id="top-info-messaging-clear-icon-div-{{forloop.counter}}">
+                        <i class="fa-regular fa-circle-xmark" id='clearMark_ErrorMesssage-{{forloop.counter}}'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% elif message.tags == 'error' %}
+        <div class="top-info-messaging-bg">
+            <div class="top-info-messaging" id="top-info_messaging-div-{{forloop.counter}}">
+                <div class="errorlist" id="top-info_messaging-div-{{forloop.counter}}">
+                    {{ message|safe }}
+                    <div class="top-info-messaging-clear-icon" id="top-info-messaging-clear-icon-div-{{forloop.counter}}">
+                        <i class="fa-regular fa-circle-xmark" id='clearMark_ErrorMesssage-{{forloop.counter}}'></i>
+                    </div>
+                </div>
+                {% if show_resend_link %}
+                <div class="resend-div">
+                    <a href="{{ show_resend_link }}" >Resend</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% elif message.tags == 'info' %}
+            <div >
+                {{ message|safe|escape }}
+            </div>
+        {% elif message.tags == 'warning' %}
+            <div >
+                {{ message|safe|escape }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
